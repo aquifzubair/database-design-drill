@@ -36,8 +36,22 @@ CREATE TABLE staff
   staff_name varchar(50) ,
   staff_location varchar(100) ,
   manager_id int,
-  contract_id int,
-  FOREIGN KEY(manager_id) REFERENCES manager(manager_id),
+)
+
+CREATE TABLE staff_manager 
+(
+  staff_id INT,
+  manager_id INT,
+  FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+  FOREIGN KEY(manager_id) REFERENCES manager(manager_id)
+)
+
+
+CREATE TABLE staff_contract 
+(
+  staff_id INT,
+  contract_id INT,
+  FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
   FOREIGN KEY(contract_id) REFERENCES contract(contract_id)
 )
 
